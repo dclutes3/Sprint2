@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/serverCSS.css">
+        <title>Drew's Assignment 6</title>
+    </head>
+    <body>
+        <script src="js/serverJS.js" async defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <div class="login-container">
+            <h1>Login</h1>
+            <h2 id="error"></h2>
+        </div>
+        <div class="login-container" id="loginForm">
+            <form action="/login" method="POST">
+                <div class="form-container" id="emailInput">
+                    <label for="email" class="form-input-label" id="formEmailLabel">Email:</label>
+                    <input type="text" class="form-input" id="formEmailInput" name="email" required>
+                </div>
+                <div class="form-container" id="passwordInput">
+                    <label for="password" class="form-input-label" id="formPasswordLabel">Password:</label>
+                    <input type="text" class="form-input" id="formPasswordInput" name="password" required>
+                </div>
+                <div class="form-container" id="loginNavigation">
+                    <button type="submit" class="form-submit" id="loginButton">Login</button>
+                </div>
+                <div class="form-container" id="loginNavigation">
+                    <a href="/register">New User?</a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

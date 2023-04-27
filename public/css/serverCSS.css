@@ -1,0 +1,102 @@
+body {
+    background-color: beige;
+}
+
+#startPage {
+    display: block;
+}
+
+#newGame {
+    display: none;
+}
+
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.start-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.index-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+}
+
+#loginNavigation {
+    display: flex;
+    justify-content: center;
+}
+
+#formNav {
+    display: flex;
+    justify-content: center;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+}
+
+#twoPlayerContainer {
+    display: none;
+}
+
+#onePlayerContainer {
+    display: none;
+}
+
+#onePlayer {
+    display: none;
+}
+
+.form-input-label::after{
+    content: "\a";
+    white-space: pre;
+}
+
+.form-input {
+    width: 200px;
+    height: 20px;
+}
+
+.form-submit {
+    width: 80px;
+}
+
+.form-container {
+    margin-bottom: 10px;
+}
+
+table {
+    border: solid black 1px;
+    width: 100%
+}
+
+td {
+    border: solid black 1px;
+}
+
+.one-player,.two-player,.start-button,.two-player-menu {
+    background-color: lightgray;
+    text-align: center;
+    border: solid goldenrod 1px;
+    height: 10vh;
+    width: 20vh;
+    padding: 20px;
+    margin-left: 40px;
+    margin-right: 80px;
+    float: inline-end5
+}

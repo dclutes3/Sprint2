@@ -14,9 +14,9 @@ const methodOverride = require('method-override')
 const mysql = require("mysql2")
 
 const pool = mysql.createPool({ //this is incorrect, so this will not work. we cannot connect to our instance so I don't know the correct crudentials
-    host:"database",
+    host:"ec2-3-19-238-216.us-east-2.compute.amazonaws.com",
     user:"islanders",
-    password:"dbpassword",
+    password:"800monkeys",
     database:"islanders",
     connectionLimit:10
 });

@@ -1,102 +1,64 @@
-body {
-    background-color: beige;
+#login {
+    background-color: navy;
+    height: 50%;
+    width: 50%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
-#startPage {
-    display: block;
+.logindiv {
+    font-family: 'Montserrat', sans-serif;
 }
 
-#newGame {
-    display: none;
+.loginform {
+    border: 0px;
 }
 
-
-.game-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 0px;
-    margin-bottom: 10px;
+.loginpage {
+    padding: 50% 30%;
 }
 
-.start-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 0px;
-    margin-bottom: 10px;
-}
-
-.index-container {
-    display: flex;
-    justify-content: center;
-}
-
-.login-container {
-    display: flex;
-    justify-content: center;
-}
-
-#loginNavigation {
-    display: flex;
-    justify-content: center;
-}
-
-#formNav {
-    display: flex;
-    justify-content: center;
-}
-
-.register-container {
-    display: flex;
-    justify-content: center;
-}
-
-#twoPlayerContainer {
-    display: none;
-}
-
-#onePlayerContainer {
-    display: none;
-}
-
-#onePlayer {
-    display: none;
-}
-
-.form-input-label::after{
-    content: "\a";
-    white-space: pre;
-}
-
-.form-input {
-    width: 200px;
-    height: 20px;
-}
-
-.form-submit {
-    width: 80px;
-}
-
-.form-container {
-    margin-bottom: 10px;
-}
-
-table {
-    border: solid black 1px;
-    width: 100%
-}
-
-td {
-    border: solid black 1px;
-}
-
-.one-player,.two-player,.start-button,.two-player-menu {
-    background-color: lightgray;
+.logintitle {
     text-align: center;
-    border: solid goldenrod 1px;
-    height: 10vh;
-    width: 20vh;
-    padding: 20px;
-    margin-left: 40px;
-    margin-right: 80px;
-    float: inline-end5
+    padding-bottom: 8%;
+}
+
+.background {
+    background-color: antiquewhite;
+}
+
+.container {
+    border-radius: 2%;
+    padding: 2% 8% 6% 8%;
+    background-color: orange;
+    width: 90%;
+}
+
+.inp {
+    padding: 5px;
+    text-align: center;
+}
+
+.textp {
+    padding-top: 4px;
+    text-align: center;
+}
+
+.loginbutton {
+    padding-top: 2%;
+    text-align: center;
+}
+
+.singlebutton{
+    width: 100px;
+    padding-left: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding-right: 2%;
 }

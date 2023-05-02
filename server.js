@@ -21,25 +21,26 @@ const pool = mysql.createPool({ //this is incorrect, so this will not work. we c
     connectionLimit:10
 });
 
-const users = []
-
 const createPassport = require('./passportConfig')
 createPassport(
     passport,
-    email => pool.query(`SELECT Email FROM Users WHERE UserID='${userID}'`,(err, res)=>{
+    email => users.find(user => user.email === email),
+    id => users.find(user => user.id === id)
+    /*
+    email => pool.query(`SELECT Email FROM Users WHERE UserID='${email}'`,(err, res)=>{
         if(err){
             console.log(err);
         } else {
             console.log(res);
         }
     }),
-    id => pool.query(`SELECT UserID FROM Users WHERE UserID='${userID}'`,(err, res)=>{
+    id => pool.query(`SELECT UserID FROM Users WHERE UserID='${user}'`,(err, res)=>{
         if(err){
             console.log(err);
         } else {
             console.log(res);
         }
-    })
+    })*/
 )
 
 app.set('view-engine','ejs')
@@ -81,26 +82,22 @@ app.get('/register',checkNotAuthenticated,(req,res)=>{
 
 app.post('/register',checkNotAuthenticated, async (req,res) => {
     try {
-        test = true
         const hashedPassword = await bcrypt.hash(req.body.password, 8);
         const userID = Date.now().toString();
         pool.query(`SELECT UserID FROM Users WHERE UserID='${userID}'`,(err, res)=>{
             if (res.length==0){
-                pool.query(`INSERT INTO Users(UserID,Fname,Lname,Email,CellPhone,HoursDesired,Address,Password) VALUES(${userID},'${req.body.fname}', '${req.body.lname}', '${req.body.email}', '${req.body.cell}', '${req.body.hours}', '${req.body.address}', '${hashedPassword}', );`, function(err,res){
+                pool.query(`INSERT INTO Users(UserID,Fname,Lname,Email,CellPhone,HoursDesired,Address,Password) VALUES(${userID},'${req.body.fname}', '${req.body.lname}', '${req.body.email}', '${req.body.cell}', ${req.body.hours}, '${req.body.address}', '${hashedPassword}');`, function(err,res){
                     if (err) { 
                         throw err 
                     } else {
+                        test = true
                         console.log(res);
+                        res.redirect('/login')
                     }
                 })
             }
         })
         showTables();
-        if (test = true){
-            res.redirect('/login')
-        } else {
-            res.redirect('/register')
-        }
     } catch(err) {
         res.redirect('/register')
     }
@@ -131,3 +128,5 @@ function checkNotAuthenticated(req,res,next){
 }
 
 app.listen(port, () => console.log(`Listening on port: ${port}...`))
+
+module.exports = initialize

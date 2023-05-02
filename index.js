@@ -61,19 +61,19 @@ const verifyCallback=(email,password,done)=>{
         console.log("email: "+email);
         console.log("fields: "+ fields);
         console.log("results: " + results[0]);
-        console.log(results[0].salt);
+        console.log(results[0].Salt);
         if(err){
             return done(err);
         }
         if (results.length==0){
             return done(null, false);
         }
-        const isValid = validPassword(password,results[0].hash,results[0].salt);
+        const isValid = validPassword(password,results[0].Hash,results[0].Salt);
         user = {
-            id: results[0].id,
-            email: results[0].email,
-            hash: results[0].hash,
-            salt: results[0].salt
+            id: results[0].UserID,
+            email: results[0].Email,
+            hash: results[0].Hash,
+            salt: results[0].Salt
         };
         if(isValid){
             return done(null,user);
@@ -138,8 +138,14 @@ app.get('/login', (req,res,next)=>{
     res.render('login');
 });
 
-app.get('logout', (req,res,next)=>{
-    req.logout();
+app.get('/logout', (req,res,next)=>{
+    req.logout(function(err){
+        if(err){
+            console.log(err);
+            return next(err);
+        }
+        res.redirect('/protected-route');
+    });
     res.redirect('/protected-route');
 });
 
@@ -177,10 +183,10 @@ app.post('/register', userExists, (req,res,next)=>{
 app.post('/login', passport.authenticate('local',{failureRedirect: '/login-failure', successRedirect: '/login-success'}));
 
 app.get('/protected-route', isAuth,(req,res,next)=>{
-    res.send('<h1>You Are Authenticated</h1><p><a href="/logout">Logout and Reload</a></p>');
+    res.render('index')
 });
 
-app.get('/not-authorized',(req,res,next)=>{
+app.get('/notAuthorized',(req,res,next)=>{
     res.send("<h1>You are not authorized to view this resource</h1><p><a href='/login'>Retry Login</a></p>");
 });
 

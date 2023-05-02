@@ -2,10 +2,9 @@
   "name": "softwaredev",
   "version": "1.0.0",
   "description": "Node.js software dev",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "index": "nodemon index.js"
+    "start": "nodemon index.js"
   },
   "author": "Drew Clutes",
   "license": "ISC",

@@ -1,5 +1,5 @@
-# Sprint2
-# Islanders: Billy Mears, Drew Clutes, Evan Dobson, Khaled Yaacoub, Teddy Kucaba
+# Sprint2: Islanders
+Billy Mears, Drew Clutes, Evan Dobson, Khaled Yaacoub, Teddy Kucaba
 
 # Setup
 I have not included my node_modules and .env files as part of my upload.
